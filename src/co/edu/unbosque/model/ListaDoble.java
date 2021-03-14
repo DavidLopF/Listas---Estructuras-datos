@@ -3,11 +3,10 @@ package co.edu.unbosque.model;
 public class ListaDoble {
 
     private NodoDoble primero;
-    private NodoDoble fin;
+
 
     public ListaDoble() {
         primero = null;
-        fin = null;
     }
 
     private boolean estaVacia() {
@@ -17,7 +16,6 @@ public class ListaDoble {
     public void insertar(String elemento) {
         if (estaVacia()) {
             primero = new NodoDoble(elemento);
-            fin = primero;
         } else {
             NodoDoble nuevo = new NodoDoble(elemento);
             nuevo.setSiguiente(primero);
@@ -37,26 +35,46 @@ public class ListaDoble {
             r = r.substring(0, r.length() - 4);
             return r;
         } else {
+
             return "Lista vacia";
         }
     }
 
-    public void eliminarIterativamente(){
-        NodoDoble ultimo = primero;
+    public void eliminarIterativamente() {
+        if (!estaVacia()) {
+            if (primero.getSiguiente() != null) {
+                NodoDoble ultimo = primero;
 
-        while (ultimo.getSiguiente() != null ){
-            ultimo = ultimo.getSiguiente();
+                while (ultimo.getSiguiente() != null) {
+                    ultimo = ultimo.getSiguiente();
+                }
+
+                NodoDoble antepenultimo = ultimo.getAnterior();
+                antepenultimo.setSiguiente(null);
+                ultimo = null;
+            } else {
+                primero = null;
+            }
         }
-
-        NodoDoble antepenultimo = ultimo.getAnterior();
-        antepenultimo.setSiguiente(null);
-        ultimo = null;
     }
 
-    public NodoDoble elimiarREcursivamente(NodoDoble ultimo){
-
-
+    public NodoDoble elimiarRecursivamente(NodoDoble ultimo) {
+        if (!estaVacia()) {
+            if (primero.getSiguiente() != null) {
+                if (ultimo.getSiguiente() != null) {
+                    return elimiarRecursivamente(ultimo.getSiguiente());
+                }
+                NodoDoble antepenultimo = ultimo.getAnterior();
+                ultimo = null;
+                antepenultimo.setSiguiente(null);
+            } else {
+                primero = null;
+            }
+        }
+        return null;
     }
 
-
+    public NodoDoble getPrimero() {
+        return primero;
+    }
 }

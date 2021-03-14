@@ -3,6 +3,7 @@ package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.ListaDoble;
 import co.edu.unbosque.model.ListaSimple;
+import co.edu.unbosque.model.NodoDoble;
 import co.edu.unbosque.model.NodoSimple;
 import co.edu.unbosque.view.View;
 
@@ -15,7 +16,6 @@ public class Controller {
     public Controller() {
 
         view = new View();
-
         funcionar();
     }
 
@@ -32,6 +32,11 @@ public class Controller {
                 listaDoble = new ListaDoble();
                 opcionesListaDoble();
                 break;
+
+            case "3.Lista circular":
+                opcionesListaCiruliar();
+                break;
+
         }
 
     }
@@ -59,6 +64,9 @@ public class Controller {
                 view.mostrarMensaje("Elemento eliminado con exito:\n" + "La lista es:\n" + listaSimple.mostrarListaSimple());
                 opcionesListaSimple();
 
+            case "Salir":
+                funcionar();
+
 
                 //parte de gonzo
         }
@@ -74,10 +82,31 @@ public class Controller {
                 view.mostrarMensaje("Elemento ingresado con exito\n\n" + "La lista es:\n" + listaDoble.mostrarListaDoble());
                 opcionesListaDoble();
 
-           case "2. Borrar iterativamente":
-               listaDoble.eliminarIterativamente();
-               view.mostrarMensaje("Elemento eliminado con exito:\n\n" + "La lista es:\n" + listaDoble.mostrarListaDoble());
-               opcionesListaDoble();
+            case "2. Borrar iterativamente":
+                listaDoble.eliminarIterativamente();
+                view.mostrarMensaje("Elemento eliminado con exito:\n\n" + "La lista es:\n" + listaDoble.mostrarListaDoble());
+                opcionesListaDoble();
+
+            case "3. Borrar recursivamente":
+                NodoDoble ultimo = listaDoble.getPrimero();
+                listaDoble.elimiarRecursivamente(ultimo);
+                view.mostrarMensaje("Elemento eliminado con exito:\n\n" + "La lista es:\n" + listaDoble.mostrarListaDoble());
+                opcionesListaDoble();
+
+            case "Salir":
+                funcionar();
+
+
+                //parte gonzo
+
+        }
+
+    }
+
+    public void opcionesListaCiruliar() {
+        String opcion = view.menuLista();
+        switch (opcion) {
+            case "1. Ingresar":
         }
 
     }
