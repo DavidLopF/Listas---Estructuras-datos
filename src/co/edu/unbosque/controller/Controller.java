@@ -12,7 +12,7 @@ public class Controller {
     private ListaCircular listaCircular;
 
     public Controller() {
-
+System.out.println("Gonzo te amo");
         view = new View();
         funcionar();
     }
