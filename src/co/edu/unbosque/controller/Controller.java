@@ -12,7 +12,7 @@ public class Controller {
     private ListaCircular listaCircular;
 
     public Controller() {
-System.out.println("Gonzo te amo");
+        System.out.println("Gonzo te amo");
         view = new View();
         funcionar();
     }
@@ -62,6 +62,27 @@ System.out.println("Gonzo te amo");
                 listaSimple.eliminarRecursivamente(antepenultimo, ultimo);
                 view.mostrarMensaje("Elemento eliminado con exito:\n" + "La lista es:\n" + listaSimple.mostrarListaSimple());
                 opcionesListaSimple();
+
+            case "4. Busqueda secuencial recursivamente":
+                String dato1 = view.capturarmensaje("Ingrese valor a buscar en la lista.");
+                NodoSimple data = new NodoSimple(dato1);
+                NodoSimple actual = listaSimple.getPrimero();
+                if (listaSimple.busquedaRecursiva(actual, data, "").getDato().isEmpty()) {
+                    view.mostrarMensaje("El dato " + dato1 + " ingresado no se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
+                } else {
+                    view.mostrarMensaje("El dato " + dato1 + " ingresado se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
+                }
+                opcionesListaSimple();
+
+            case "5. Busqueda secuencial iterativametne":
+                String dato = view.capturarmensaje("Ingrese valor a buscar en la lista.");
+                if (listaSimple.busquedaIterativa(dato).isEmpty()) {
+                    view.mostrarMensaje("El dato " + dato + " ingresado no se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
+                } else {
+                    view.mostrarMensaje("El dato " + dato + " ingresado se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
+                }
+                opcionesListaSimple();
+
 
             case "Salir":
                 funcionar();
