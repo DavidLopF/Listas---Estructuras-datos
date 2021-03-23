@@ -73,6 +73,36 @@ public class ListaDoble {
         }
         return null;
     }
+    public String busquedaIterativa(String dato) {
+        String r = "";
+        if (!estaVacia()) {
+            NodoDoble actual = primero;
+            while (actual != null ) {
+                if (actual.getDato().equals(dato)) {
+                    r = actual.getDato();
+                }
+                actual = actual.getSiguiente();
+            }
+        }
+        return r;
+    }
+
+
+    public NodoSimple busquedaRecursiva(NodoDoble actual, NodoDoble data,String a) {
+        if (!estaVacia()) {
+            if (actual != null) {
+                if (actual.getDato().equals(data.getDato())) {
+                    a = actual.getDato();
+                }
+                return busquedaRecursiva(actual.getSiguiente(), data ,a);
+            }
+        }
+        NodoSimple temp = new NodoSimple(a);
+        return temp;
+    }
+
+   
+    
 
     public NodoDoble getPrimero() {
         return primero;
