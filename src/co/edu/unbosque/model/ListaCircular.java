@@ -78,8 +78,31 @@ public class ListaCircular {
         }
         return null;
     }
+    
+    public String busquedaIterativa(String dato) {
+    	return "x";
+    }
+
+
+    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato,String a) {
+        if (!listaVacia()) {
+            if (actual != primero.getSiguiente() && actual != ultimo) {
+                if (actual.getSiguiente().getDato().equals(dato.getDato())) {
+                    a = actual.getDato();
+                }
+                return busquedaRecursiva(actual.getSiguiente(), dato ,a);
+            }
+        
+    }
+    
+        NodoSimple temp = new NodoSimple(a);
+        return temp;
+    }
 
     public NodoSimple getPrimero() {
         return primero;
     }
+
+	
+	
 }
