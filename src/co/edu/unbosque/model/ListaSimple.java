@@ -5,6 +5,7 @@ public class ListaSimple {
     private NodoSimple primero;
 
     public ListaSimple() {
+
         primero = null;
     }
 
@@ -54,13 +55,13 @@ public class ListaSimple {
     }
 
 
-    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato,String a) {
+    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato, String a) {
         if (!listaVacia()) {
             if (actual != null) {
                 if (actual.getDato().equals(dato.getDato())) {
                     a = actual.getDato();
                 }
-                return busquedaRecursiva(actual.getSiguiente(), dato ,a);
+                return busquedaRecursiva(actual.getSiguiente(), dato, a);
             }
         }
         NodoSimple temp = new NodoSimple(a);
@@ -84,44 +85,7 @@ public class ListaSimple {
         }
         return null;
     }
-    public String busquedaIterativa(String dato) {
-        String r = "";
-        if (!listaVacia()) {
-            NodoSimple actual = primero;
-            while (actual != null) {
-                if (actual.getDato().equals(dato)) {
-                    r = actual.getDato();
-                }
-                actual = actual.getSiguiente();
-            }
-        }
-        return r;
-    }
 
-
-    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato,String a) {
-        if (!listaVacia()) {
-            if (actual != null) {
-                if (actual.getDato().equals(dato.getDato())) {
-                    a = actual.getDato();
-                }
-                return busquedaRecursiva(actual.getSiguiente(), dato ,a);
-            }
-        }
-        NodoSimple temp = new NodoSimple(a);
-        return temp;
-    }
-
-	public NodoSimple getPrimero() {
-		return primero;
-	}
-
-	public void setPrimero(NodoSimple primero) {
-		this.primero = primero;
-	}
-
-    
-    
 
     public String mostrarListaSimple() {
         if (!listaVacia()) {
@@ -141,5 +105,4 @@ public class ListaSimple {
     public NodoSimple getPrimero() {
         return primero;
     }
-
 }

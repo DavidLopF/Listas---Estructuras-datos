@@ -13,7 +13,6 @@ public class ListaCircular {
     public void insertar(String elemento) {
         NodoSimple nuevo = new NodoSimple(elemento);
         if (primero == null) {
-
             primero = nuevo;
             ultimo = primero;
             primero.setSiguiente(ultimo);
@@ -78,23 +77,33 @@ public class ListaCircular {
         }
         return null;
     }
-    
+
     public String busquedaIterativa(String dato) {
-    	return "x";
+        String r = "";
+        if (!listaVacia()) {
+            NodoSimple actual = primero;
+            while (actual != primero.getSiguiente()) {
+                if (actual.getDato().equals(dato)) {
+                    r = actual.getDato();
+                }
+                actual = actual.getSiguiente();
+            }
+        }
+        return r;
     }
 
 
-    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato,String a) {
+    public NodoSimple busquedaRecursiva(NodoSimple actual, NodoSimple dato, String a) {
         if (!listaVacia()) {
             if (actual != primero.getSiguiente() && actual != ultimo) {
                 if (actual.getSiguiente().getDato().equals(dato.getDato())) {
                     a = actual.getDato();
                 }
-                return busquedaRecursiva(actual.getSiguiente(), dato ,a);
+                return busquedaRecursiva(actual.getSiguiente(), dato, a);
             }
-        
-    }
-    
+
+        }
+
         NodoSimple temp = new NodoSimple(a);
         return temp;
     }
@@ -103,6 +112,5 @@ public class ListaCircular {
         return primero;
     }
 
-	
-	
+
 }

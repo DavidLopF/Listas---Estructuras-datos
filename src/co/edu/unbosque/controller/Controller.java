@@ -62,17 +62,18 @@ public class Controller {
                 view.mostrarMensaje("Elemento eliminado con exito:\n" + "La lista es:\n" + listaSimple.mostrarListaSimple());
                 opcionesListaSimple();
             case "4. Busqueda secuencial recursivamente":
+
                 String dato1 = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 NodoSimple data = new NodoSimple(dato1);
                 NodoSimple actual = listaSimple.getPrimero();
-                if (listaSimple.busquedaRecursiva(actual, data, "").getDato().isEmpty()) {
+                if (listaSimple.busquedaRecursiva(actual,data,"").getDato().isEmpty()) {
                     view.mostrarMensaje("El dato " + dato1 + " ingresado no se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
                 } else {
                     view.mostrarMensaje("El dato " + dato1 + " ingresado se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
                 }
                 opcionesListaSimple();
 
-            case "5. Busqueda secuencial iterativametne":
+            case "5. Busqueda secuencial iterativamente":
                 String dato = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 if (listaSimple.busquedaIterativa(dato).isEmpty()) {
                     view.mostrarMensaje("El dato " + dato + " ingresado no se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
@@ -82,10 +83,7 @@ public class Controller {
                 opcionesListaSimple();
 
             case "Salir":
-                funcionar(); 
-
-
-                //parte de gonzo
+                funcionar();
         }
 
     }
@@ -109,7 +107,7 @@ public class Controller {
                 listaDoble.elimiarRecursivamente(ultimo);
                 view.mostrarMensaje("Elemento eliminado con exito:\n\n" + "La lista es:\n" + listaDoble.mostrarListaDoble());
                 opcionesListaDoble();
-                
+
             case "4. Busqueda secuencial recursivamente":
                 String dato1 = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 NodoDoble data = new NodoDoble(dato1);
@@ -128,14 +126,9 @@ public class Controller {
                 } else {
                     view.mostrarMensaje("El dato " + dato + " ingresado   se encuentra en la lista\n" +  listaDoble.mostrarListaDoble());
                 }
-           
 
             case "Salir":
                 funcionar();
-
-
-                //parte gonzo
-
         }
 
     }
@@ -157,7 +150,7 @@ public class Controller {
                 listaCircular.eliminaRecurisvamente(listaCircular.getPrimero());
                 view.mostrarMensaje("La lista es :\n" + listaCircular.mostrarLista());
                 opcionesListaCirculiar();
-                
+
             case "4. Busqueda secuencial recursivamente":
                 String dato1 = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 NodoSimple data = new NodoSimple(dato1);
@@ -170,19 +163,17 @@ public class Controller {
                 opcionesListaCirculiar();
 
             case "5. Busqueda secuencial iterativamente":
+
                 String dato = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 if (listaCircular.busquedaIterativa(dato).isEmpty()) {
                     view.mostrarMensaje("El dato " + dato + " ingresado no se encuentra en la lista\n" + listaCircular.mostrarLista());
-                } else { 
+                } else {
                     view.mostrarMensaje("El dato " + dato + " ingresado se encuentra en la lista\n" + listaCircular.mostrarLista());
                 }
                 opcionesListaCirculiar();
-           
-                
             case "Salir":
                 funcionar();
 
-                //parte gonzo :)
         }
 
     }
