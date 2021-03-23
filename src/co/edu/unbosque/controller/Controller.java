@@ -12,7 +12,6 @@ public class Controller {
     private ListaCircular listaCircular;
 
     public Controller() {
-
         view = new View();
         funcionar();
     }
@@ -62,8 +61,6 @@ public class Controller {
                 listaSimple.eliminarRecursivamente(antepenultimo, ultimo);
                 view.mostrarMensaje("Elemento eliminado con exito:\n" + "La lista es:\n" + listaSimple.mostrarListaSimple());
                 opcionesListaSimple();
-
-           
             case "4. Busqueda secuencial recursivamente":
                 String dato1 = view.capturarmensaje("Ingrese valor a buscar en la lista.");
                 NodoSimple data = new NodoSimple(dato1);
@@ -83,9 +80,7 @@ public class Controller {
                     view.mostrarMensaje("El dato " + dato + " ingresado se encuentra en la lista\n" + listaSimple.mostrarListaSimple());
                 }
                 opcionesListaSimple();
-           
-            
-            
+
             case "Salir":
                 funcionar(); 
 
